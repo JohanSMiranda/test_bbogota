@@ -11,10 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.UUID;
 
-import static com.backend.bbogota.backend.config.TraceConst.TRACE_ID;
 
 @RestController
 @RequestMapping("/api")
@@ -26,9 +24,14 @@ public class ClientController {
     private ClientService clientService;
 
     @PostMapping("/client")
-    public ResponseEntity<Object> getClientInfo(HttpServletRequest request, @RequestBody ClientResponseDTO clientResponseDTO) {
+    public ResponseEntity<Object> getClientInfo(@RequestBody ClientResponseDTO clientResponseDTO) {
         UUID uuid = UUID.randomUUID();
-        request.setAttribute(TRACE_ID, uuid);
+        if (clientResponseDTO.getDocumentNumber() == null || clientResponseDTO.getDocumentNumber().isEmpty() ||
+                clientResponseDTO.getType() == null || clientResponseDTO.getType().isEmpty()) {
+            logger.error(String.format("%s - El número de documento o el tipo no pueden ser nulos o vacíos", uuid));
+            return new ResponseEntity<>("El número de documento o el tipo no pueden ser nulos o vacíos", HttpStatus.BAD_REQUEST);
+        }
+
         try {
             Client client = clientService.getClient(clientResponseDTO.getType(), clientResponseDTO.getDocumentNumber());
             logger.info(String.format("%s - Cliente encontrado: %s",uuid, client));
