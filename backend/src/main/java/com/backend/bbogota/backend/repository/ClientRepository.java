@@ -1,6 +1,5 @@
 package com.backend.bbogota.backend.repository;
 
-
 import com.backend.bbogota.backend.model.Client;
 import org.springframework.stereotype.Repository;
 

@@ -1,19 +1,14 @@
 package com.backend.bbogota.backend.service;
 
-
 import com.backend.bbogota.backend.exception.ClientException;
 import com.backend.bbogota.backend.model.Client;
 import com.backend.bbogota.backend.repository.ClientRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @Service
 public class ClientService {
-
-    private static final Logger logger = LoggerFactory.getLogger(ClientService.class);
 
     private final ClientRepository clientRepository;
 
