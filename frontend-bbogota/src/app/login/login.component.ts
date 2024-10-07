@@ -30,6 +30,7 @@ export class LoginComponent {
   }
 
   buscarUsuario() {
+    this.showModal = false;
     const payload = {
       type: this.tipoDocumento,
       documentNumber: this.numeroDocumento
