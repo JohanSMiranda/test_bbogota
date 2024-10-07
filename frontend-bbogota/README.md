@@ -1,27 +1,40 @@
-# FrontendBbogota
+# Proyecto Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+Este proyecto está desarrollado en **Angular 18** y se ejecuta en **http://localhost:4200/**.
 
-## Development server
+## Funcionalidad
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+La aplicación presenta un formulario que permite buscar un usuario mediante la selección del tipo de documento y el número de documento.
 
-## Code scaffolding
+### Campos del Formulario
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Tipo de Documento**: Un campo de selección (select) que permite elegir entre:
+  - Cédula de Ciudadanía
+  - Pasaporte
 
-## Build
+- **Número de Documento**: Un campo de entrada que solo acepta números. Este campo tiene las siguientes validaciones:
+  - Debe contener un mínimo de 8 caracteres y un máximo de 11.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> Nota: Si no se cumplen estas validaciones, el botón "Buscar" no se activará.
 
-## Running unit tests
+## Errores y Mensajes Emergentes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Al hacer clic en el botón "Buscar", si ocurre algún error, se mostrará un modal emergente con los siguientes mensajes:
 
-## Running end-to-end tests
+1. **El número de documento o el tipo no pueden ser nulos o vacíos**  
+   Ocurre cuando, por algún motivo, se enviaron campos vacíos o nulos.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. **Tipo de documento inválido**  
+   Ocurre cuando se envía un tipo de documento no válido.
 
-## Further help
+3. **Cliente no encontrado**  
+   Ocurre cuando los datos de la consulta enviados no coinciden con ningún usuario registrado.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+4. **Error interno del servidor**  
+   Ocurre por un error inesperado. Si esto sucede, agradecería tu contacto y una breve descripción para replicar el error.
+
+## Contacto
+
+Para cualquier duda, no dudes en contactarte:
+
+**Johan Sebastian Miranda Gualdron**
