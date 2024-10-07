@@ -1,0 +1,13 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div style="width: 100%; max-width: 400px;">
+    <h2 class="text-center">Información del cliente</h2>
+    <div *ngIf="cliente">
+      <p><strong>Nombre:</strong> {{ cliente.firstName }} {{ cliente.secondName }}</p>
+      <p><strong>Apellidos:</strong> {{ cliente.lastName }} {{ cliente.secondLastName }}</p>
+      <p><strong>Teléfono:</strong> {{ cliente.phone }}</p>
+      <p><strong>Dirección:</strong> {{ cliente.address }}</p>
+      <p><strong>Ciudad:</strong> {{ cliente.city }}</p>
+    </div>
+    <button class="btn btn-primary w-100" (click)="volver()" style="border-radius: 20px;">Volver</button>
+  </div>
+</div>

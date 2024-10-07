@@ -1,0 +1,23 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <app-modal [showModal]="showModal" [errorMessage]="errorMessage"></app-modal>
+  <div style="width: 100%; max-width: 400px;">
+    <h2 class="text-center">Busqueda usuario</h2>
+    <form>
+      <p style="color: gray; font-size: 0.9rem; margin-bottom: 0.5rem;">Todos los campos son obligatorios</p>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="tipoDocumento" style="color: #007bff;">Tipo de Documento</label>
+        <select class="form-control" id="tipoDocumento" [(ngModel)]="tipoDocumento" name="tipoDocumento" required>
+          <option value="">Seleccione...</option>
+          <option value="C">Cédula de Ciudadanía</option>
+          <option value="P">Pasaporte</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="numeroDocumento" style="color: #007bff;">Número de Documento</label>
+        <input type="text" class="form-control" id="numeroDocumento" [(ngModel)]="numeroDocumento" name="numeroDocumento"
+               placeholder="Ingrese el número de documento" required minlength="8" maxlength="11" pattern="^[0-9]*$">
+      </div>
+      <button type="button" class="btn btn-primary w-100" [disabled]="!formularioValido()" (click)="buscarUsuario()" style="border-radius: 20px; width: 100%;">Buscar</button>
+    </form>
+  </div>
+</div>
